@@ -21,10 +21,10 @@ module WordOriginLanguageModule
       end
 
       response = "*Palavras a traduzidas* \n\n"
-      word_origin_language.each do |f|
+      word_origin_languages.each do |f|
         response += "*#{f.id}* - "
         response += "*#{f.word}*\n"
-        response += "`#{f.language}` \n"
+        response += "#{f.language} \n"
         f.word_destin_languages.each do |h|
           response += "_##{h.word}_ "
           response += "_##{h.language}_ "

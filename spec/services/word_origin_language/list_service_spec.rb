@@ -17,8 +17,8 @@ describe WordOriginLanguageModule::ListService do
         it "Find questions and answer in response" do
           @listService = WordOriginLanguageModule::ListService.new({}, 'list')
 
-          word_origin_language1 = create(:word_origin_languages)
-          word_origin_language2 = create(:word_origin_languages)
+          word_origin_language1 = create(:word_origin_language)
+          word_origin_language2 = create(:word_origin_language)
 
           response = @listService.call()
 
@@ -43,9 +43,9 @@ describe WordOriginLanguageModule::ListService do
 
       context "Valid query" do
         it "find question and answer in response" do
-          word_origin_language = create(:word_origin_languages)
+          word_origin_language = create(:word_origin_language)
 
-          @listService = WordOriginLanguageModule::ListService.new({'query' => word_origin_language.question.split(" ").sample}, 'search')
+          @listService = WordOriginLanguageModule::ListService.new({'query' => word_origin_language.word.split(" ").sample}, 'search')
 
           response = @listService.call()
 
